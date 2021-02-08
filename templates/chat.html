@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chatbot</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+        <style type="text/css">
+		.container-custom{
+			width: 100%;
+			background: #19313c;
+		}
+		
+		.container-custom .row{
+			background: #19313c;
+			border-radius: 0px;
+		}
+		
+		.navbar .navbar-inverse{
+			background-color: #19313c;
+		}
+		
+         .fixed-panel {
+                min-height: 400px;
+                max-height: 400px;
+				background-color: #19313c;
+				color: white;
+                overflow: auto;
+
+
+            }
+            .media-list {
+
+           		overflow: auto;
+			clear: both;
+			display: table;
+			overflow-wrap: break-word;
+			word-wrap: break-word;
+			word-break: normal;
+			line-break: strict;		
+           }
+			.panel {
+			margin-bottom: 20px;
+			background-color: #0c2735;
+			border: 10px;
+			border-radius: 25px;
+			-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+			box-shadow: 0 1px 1px rgba(0,0,0,.05);
+			}
+			.panel-info {
+			border-color: #0c2735;
+			}
+			.panel-info>.panel-heading {
+			color: #fff;
+			background-color: #0c2735;
+			border-color: #0c2735;
+			}
+			.panel-footer {
+			padding: 10px 15px;
+			background-color:#0c2735;
+			border-top: 1px solid #0c2735;
+			border-bottom-right-radius: 3px;
+			border-bottom-left-radius: 3px;
+			}
+			
+			body {
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#608f95+0,008588+9,0c2449+52,1a1e3b+100 */
+			background: rgb(96,143,149); /* Old browsers */
+			background: -moz-linear-gradient(-45deg, rgba(96,143,149,1) 0%, rgba(0,133,136,1) 9%, rgba(12,36,73,1) 52%, rgba(26,30,59,1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(-45deg, rgba(96,143,149,1) 0%,rgba(0,133,136,1) 9%,rgba(12,36,73,1) 52%,rgba(26,30,59,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(135deg, rgba(96,143,149,1) 0%,rgba(0,133,136,1) 9%,rgba(12,36,73,1) 52%,rgba(26,30,59,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#608f95', endColorstr='#1a1e3b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			}
+			
+			body{
+				 background: linear-gradient(#000,white);
+			}
+			
+			.navbar-header a{
+				color: #29fdc4!important;
+			}
+			
+			#about{
+				visibility: hidden;
+			}
+			#contact{
+				visibility: hidden;
+			}
+
+        </style>
+    </head>
+<body>
+			<div class="container-custom">
+				<nav class="navbar navbar-inverse">
+				  <div class="container-fluid">
+					<div class="navbar-header">
+					  <a class="navbar-brand" href="#" style="font-family:cursive;">CH@T-BOT</a>
+					</div>
+					<ul class="nav navbar-nav">
+					  <li class="active"><a href="#">Home</a></li>
+					  <li><a id="cli">About Us</br>
+					  </a></li>
+					  <li><a id="cli1">Contact Us</a></li>
+					</ul>
+				  </div>
+				</nav>
+			</div>
+			
+        <div class="container background-color: rgb(255,0,255);">
+            <div class="row">
+                <div class="alert alert-info text-center" style="font-size:17px;font-weight:bold;"><marquee scrollamount="10"><h1><b>JISCE CSE Dept. Support Desk</b></h1></marquee></div>
+
+					<div class="col-md-4" id="about">
+						<div class="alert alert-danger">
+							<i>
+							<h1 align="center">About Us</h1>
+								<p><marquee direction="up" scrollamount="5">
+									<h4>Intro:</h4></br>
+						
+									<h3>CH@T-BOT developed by :</h3></br>
+									Parantapa Sarkar - iamparantapa@live.com</br>
+									Payel Roy - payelroy4545@gmail.com</br>
+									Madhvi Kumari -madhvi@gmail.com</br>
+									Hindol Bag - hindoljis1996@gmail.com</br>
+									</br>CSE Department</br>
+									xxxxxxxxxxxxx@mail.com</br>
+									</br>JIS College of Engineering</br>
+									Block A, Phase III, Kalyani, Nadia - 741235, West Bengal</br>
+									033 2582 2865</br>
+									www.jiscollege.ac.in</br>
+									info.jiscollege@jisgroup.org</br>
+									</i>
+								</marquee></p>
+						</div>
+					</div>
+				
+                <div class="col-md-4" id="chat">
+				
+                    <div id="chatPanel" class="panel panel-info">
+                        <div class="panel-heading">
+                           
+							<strong><span class="glyphicon glyphicon-globe"></span> Talk with Me !!!</strong>
+                        
+						</div>
+                        <div class="panel-body fixed-panel">
+                            <ul class="media-list">
+                            </ul>
+                        </div>
+                        <div class="panel-footer">
+                            <form method="post" id="chatbot-form">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Enter Message" name="messageText" id="messageText" autofocus/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-info" type="button" id="chatbot-form-btn">Answer Me <span class="glyphicon glyphicon-send"></span></button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+				
+				<div class="col-md-4" id="contact">
+					<div class="alert alert-success">
+					<h1 align="center">Contact Us</h1>
+						<div class="container">
+						<form action="action_page.php">
+						<label for="fname">First Name</label></br>
+						<input type="text" id="fname" name="firstname" placeholder="Your name.."></br>
+						<label for="lname">Last Name</label></br>
+						<input type="text" id="lname" name="lastname" placeholder="Your last name.."></br>
+						<label for="country">Country</label></br>
+						<select id="country" name="country">
+						<option value="india">India</option>
+						<option value="canada">Canada</option>
+						<option value="usa">USA</option>
+						</select></br>
+						<label for="subject">Subject</label></br>
+						<textarea id="subject" name="subject" placeholder="Type your Message Here...." style="height:200px"></textarea></br>
+						<input type="submit" value="Submit">
+						</form>
+						</div>
+					</div>
+				</div>
+				
+            </div>
+        </div>
+			
+
+        <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script>
+		
+		$("#cli").click(function(){
+		  $('#about').css('visibility', 'visible');
+		});
+		
+		$("#cli1").click(function(){
+		  $('#contact').css('visibility', 'visible');
+		});
+		
+        $(function() {
+            $('#chatbot-form-btn').click(function(e) {
+                e.preventDefault();
+                $('#chatbot-form').submit();
+            });
+
+            $('#chatbot-form').submit(function(e) {
+                e.preventDefault();
+
+                var message = $('#messageText').val();
+                $(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div class="media-body">' + message + '<hr/></div></div></div></li>');
+                $.ajax({
+                    type: "POST",
+                    url: "/ask",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#messageText').val('');
+
+                        var answer = response.answer;
+                        const chatPanel = document.getElementById("chatPanel");
+                        $(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div class="media-body">' + answer + '<hr/></div></div></div></li>');
+			$(".fixed-panel").stop().animate({ scrollTop: $(".fixed-panel")[0].scrollHeight}, 1000);
+			
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+        </script>
+    </body>
+</html>

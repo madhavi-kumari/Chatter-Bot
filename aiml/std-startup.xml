@@ -1,0 +1,27 @@
+<aiml version="1.0">
+
+<!-- This category works with the standard AIML Set -->
+<category>
+<pattern>LOAD AIML B</pattern>
+<template>
+
+<!-- Load standard AIML set -->
+<learn>aiml/standard/std-65percent.aiml</learn>
+<learn>aiml/standard/std-atomic.aiml</learn>
+<learn>aiml/standard/std-botmaster.aiml</learn>
+<learn>aiml/standard/std-brain.aiml</learn>
+<learn>aiml/standard/std-hello.aiml</learn>
+<learn>aiml/standard/std-personality.aiml</learn>
+<learn>aiml/standard/std-srai.aiml</learn>
+<learn>aiml/standard/std-suffixes.aiml</learn>
+<learn>aiml/standard/std-yesno.aiml</learn>
+
+
+<!-- Load additional AIML set -->
+<learn>aiml/additional/computer.aiml</learn>
+
+
+</template>
+</category>
+
+</aiml>
